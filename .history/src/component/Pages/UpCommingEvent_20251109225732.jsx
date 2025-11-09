@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import axiosPublic from '../../axiosPublic';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const UpCommingEvent = () => {
 

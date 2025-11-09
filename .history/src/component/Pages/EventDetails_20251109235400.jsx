@@ -19,12 +19,7 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
-    const handleJoin = () => {
-      
-    }
 
-    if (loading) return <p className="text-center mt-10">Loading...</p>;
-    
 
     return (
         <div className="max-w-3xl mx-auto mt-10 p-4 bg-white rounded shadow">

@@ -1,31 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvidor';
-import axiosPublic from '../../axiosPublic';
-import { toast } from 'react-toastify';
+import React from 'react';
 
 const EventDetails = () => {
-
-    const { id } = useParams();
-    const [event, setEvent] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        axiosPublic.get(`/events/${id}`)
-            .then(res => setEvent(res.data))
-            .catch(() => toast.error("Failed to load event"))
-            .finally(() => setLoading(false));
-    }, [id])
-
-    const handleJoin = () => {
-      
-    }
-
-    if (loading) return <p className="text-center mt-10">Loading...</p>;
-    
-
     return (
         <div className="max-w-3xl mx-auto mt-10 p-4 bg-white rounded shadow">
             <img src={event.thumbnail} alt={event.title} className="w-full h-64 object-cover rounded mb-5" />

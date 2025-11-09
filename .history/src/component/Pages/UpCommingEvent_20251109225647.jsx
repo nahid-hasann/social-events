@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import axiosPublic from '../../axiosPublic';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const UpCommingEvent = () => {
 
@@ -14,11 +13,7 @@ const UpCommingEvent = () => {
         const today = new Date();
         const upcomming = res.data.filter((event) => new Date(event.eventDate) >= today )
         setEvents(upcomming);
-      }).catch((err) => {
-          console.error(err);
-          toast.error("Failed to load events!");
       })
-          .finally(() => setLoading(false));
     }, [])
 
     if (loading) {

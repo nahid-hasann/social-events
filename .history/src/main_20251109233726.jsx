@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         element: <JoinEvents></JoinEvents>
       },
       {
-        path: "/events/:id",
+        path: "/eventDetails",
         element: <EventDetails></EventDetails>
       }
 

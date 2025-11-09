@@ -34,7 +34,7 @@ const CreateEvent = () => {
         }
 
         const today = new Date();
-        if (eventDate < today) {
+        if (eventDate < today){
             toast.error("You cannot select a past date!");
             setLoading(false);
             return;
@@ -52,14 +52,18 @@ const CreateEvent = () => {
 
         console.log(eventData);
 
-        axiosPublic.post("/events", eventData)
-
 
         toast.success("Event created successfully!");
         setLoading(false);
         setTimeout(() => {
             navigate('/events');
         }, 1000);
+
+
+axiosPublic.post("/")
+
+
+
 
     }
 

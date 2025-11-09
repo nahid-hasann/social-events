@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../../AuthProvidor';
-import { useNavigate } from 'react-router-dom';
+// import { data, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axiosPublic from '../../axiosPublic';
+import axios from "axios";
 
 
 const CreateEvent = () => {
@@ -34,7 +34,7 @@ const CreateEvent = () => {
         }
 
         const today = new Date();
-        if (eventDate < today) {
+        if (eventDate < today){
             toast.error("You cannot select a past date!");
             setLoading(false);
             return;
@@ -52,14 +52,18 @@ const CreateEvent = () => {
 
         console.log(eventData);
 
-        axiosPublic.post("/events", eventData)
-
 
         toast.success("Event created successfully!");
         setLoading(false);
         setTimeout(() => {
             navigate('/events');
         }, 1000);
+
+
+
+
+
+
 
     }
 

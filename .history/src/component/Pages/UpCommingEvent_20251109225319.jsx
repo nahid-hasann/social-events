@@ -1,33 +1,16 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect} from 'react';
 import axiosPublic from '../../axiosPublic';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const UpCommingEvent = () => {
 
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       axiosPublic.get("/events")
       .then( (res) => {
         const today = new Date();
-        const upcomming = res.data.filter((event) => new Date(event.eventDate) >= today )
-        setEvents(upcomming);
-      }).catch((err) => {
-          console.error(err);
-          toast.error("Failed to load events!");
+        const upcomming = res.data.filter(())
       })
-          .finally(() => setLoading(false));
     }, [])
-
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center h-[60vh]">
-                <p className="text-blue-600 text-lg font-semibold">Loading events...</p>
-            </div>
-        );
-      }
 
     return (
         <div className="max-w-6xl mx-auto mt-10 p-4">

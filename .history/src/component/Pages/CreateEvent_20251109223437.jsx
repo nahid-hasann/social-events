@@ -52,14 +52,18 @@ const CreateEvent = () => {
 
         console.log(eventData);
 
-        axiosPublic.post("/events", eventData)
-
 
         toast.success("Event created successfully!");
         setLoading(false);
         setTimeout(() => {
             navigate('/events');
         }, 1000);
+
+
+        axiosPublic.post("/events", eventData).then(res => console.log(res) )
+
+
+
 
     }
 
