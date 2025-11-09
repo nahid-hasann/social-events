@@ -20,6 +20,9 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
+    useEffect(() => {
+      
+    }, [])
 
     const handleJoin = () => {
         if (!user) {

@@ -11,7 +11,6 @@ const EventDetails = () => {
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [joined, setJoined] = useState(false);
 
     useEffect(() => {
         axiosPublic.get(`/events/${id}`)
@@ -20,26 +19,13 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
-
     const handleJoin = () => {
         if (!user) {
             toast.info("Please login to join this event!");
             navigate("/login");
             return;
           }
-
-        const joinData = {
-            eventId: id,
-            userEmail: user.email,
-            joinedAt: new Date()
-          };
-
-        axiosPublic.post("/joined-events", joinData)
-            .then(() => {
-                toast.success("Successfully joined the event!")
-                setJoined(true);
-            })
-            .catch(() => toast.error("Failed to join event"));
+          
     }
 
     if (loading) return <p className="text-center mt-10">Loading...</p>;
@@ -53,15 +39,8 @@ const EventDetails = () => {
             <p className="text-sm text-gray-600 mb-1">📍 {event.location}</p>
             <p className="text-sm text-gray-600 mb-1">📅 {new Date(event.eventDate).toLocaleDateString()}</p>
             <p className="text-sm text-gray-600 mb-3">🗂 Type: {event.type}</p>
-            <button
-                onClick={handleJoin}
-                disabled={joined}
-                className={`px-5 py-2 rounded transition ${joined
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700 text-white"
-                    }`}
-            >
-                {joined ? "✅ Joined" : "Join Event"}
+            <button onClick={handleJoin} className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">
+                Join Event
             </button>
         </div>
     );

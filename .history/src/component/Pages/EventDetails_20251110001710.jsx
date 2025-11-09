@@ -20,7 +20,6 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
-
     const handleJoin = () => {
         if (!user) {
             toast.info("Please login to join this event!");

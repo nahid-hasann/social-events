@@ -20,6 +20,16 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
+    useEffect(() => {
+        if (!user?.email) return; // user না থাকলে কিছু করবে না
+
+        axiosPublic.get(`/joined-events/${user.email}`)
+            .then(res => {
+                const already = res.data.find(e => e.eventId === id);
+                if (already) setJoined(true);
+            })
+            .catch(err => console.error("join check failed", err));
+    }, [user, id]);
 
     const handleJoin = () => {
         if (!user) {

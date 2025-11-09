@@ -20,6 +20,7 @@ const EventDetails = () => {
             .finally(() => setLoading(false));
     }, [id])
 
+    
 
     const handleJoin = () => {
         if (!user) {
