@@ -47,7 +47,7 @@ const Navbar = () => {
                                 />
                                 <span className="absolute
                                  transition-all
-                                  duration-500 ease-out 
+                                  duration-300 ease-out 
                                   group-hover:translate-y-0
                                    translate-y-2 left-1/2
                                     -translate-x-1/2 -top-[25px]
@@ -61,15 +61,13 @@ const Navbar = () => {
                                 <div className="
 
                                 absolute
-                                 -right-[70px] mt-0 w-48
+                                 -right-[30px] mt-2 w-48
                                   bg-white shadow-lg 
-                                  rounded-lg 
+                                  rounded-lg border
                                 opacity-0 translate-y-2
                                 group-hover:opacity-100 group-hover:translate-y-0
-                               transition-all duration-500 ease-out
-                               pointer-events-none group-hover:pointer-events-auto
-                               
-                               "
+                               transition-all duration-300 ease-out
+                               pointer-events-none group-hover:pointer-events-auto"
 
                                 >
 

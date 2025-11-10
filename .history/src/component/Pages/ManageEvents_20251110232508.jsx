@@ -78,10 +78,7 @@ const ManageEvents = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const updatedData = result.value;
-                if (new Date(updatedData.eventDate) < new Date()) {
-                    Swal.fire("Error!", "Event date must be in the future!", "error");
-                    return;
-                  }
+                if (new Date(updatedData.eventDate) < new Date())
 
                 axiosPublic
                     .put(`/events/${event._id}`, updatedData)

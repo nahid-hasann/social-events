@@ -78,10 +78,6 @@ const ManageEvents = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const updatedData = result.value;
-                if (new Date(updatedData.eventDate) < new Date()) {
-                    Swal.fire("Error!", "Event date must be in the future!", "error");
-                    return;
-                  }
 
                 axiosPublic
                     .put(`/events/${event._id}`, updatedData)
@@ -132,7 +128,6 @@ const ManageEvents = () => {
                                     Delete
                                 </button>
                                 <button
-                                    onClick={() => handleUpdate(event)}
                                     className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
                                 >
                                     Update

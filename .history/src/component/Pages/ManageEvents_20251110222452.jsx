@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 const ManageEvents = () => {
     const { user } = useContext(AuthContext);
     const [myEvents, setMyEvents] = useState([]);
-    console.log(myEvents)
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -23,7 +22,7 @@ const ManageEvents = () => {
     }, [user?.email])
 
     const handleDelete = (id) => {
-
+      
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -34,18 +33,11 @@ const ManageEvents = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/events/${id}`)
-                    .then(() => {
-                        Swal.fire("Deleted!", "Your event has been removed.", "success");
-                        setMyEvents((prev) => prev.filter((e) => e._id !== id));
-                    })
-                    .catch(() => {
-                        Swal.fire("Error!", "Failed to delete the event.", "error");
-                    });
+                axiosPublic.delete()
             }
         });
-
-    };
+        
+      };
 
     if (loading) {
         return (
@@ -55,52 +47,7 @@ const ManageEvents = () => {
         );
     }
 
-    const handleUpdate = (event) => {
-        Swal.fire({
-            title: "Update Event",
-            html: `
-            <input id="title" class="swal2-input" placeholder="Title" value="${event.title}">
-            <input id="location" class="swal2-input" placeholder="Location" value="${event.location}">
-            <input id="date" class="swal2-input" type="date" value="${new Date(event.eventDate).toISOString().split("T")[0]}">
-            <input id="thumbnail" class="swal2-input" placeholder="Image URL" value="${event.thumbnail}">
-          `,
-            focusConfirm: false,
-            showCancelButton: true,
-            confirmButtonText: "Save Changes",
-            preConfirm: () => {
-                return {
-                    title: document.getElementById("title").value,
-                    location: document.getElementById("location").value,
-                    eventDate: document.getElementById("date").value,
-                    thumbnail: document.getElementById("thumbnail").value,
-                };
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const updatedData = result.value;
-                if (new Date(updatedData.eventDate) < new Date()) {
-                    Swal.fire("Error!", "Event date must be in the future!", "error");
-                    return;
-                  }
 
-                axiosPublic
-                    .put(`/events/${event._id}`, updatedData)
-                    .then(() => {
-                        Swal.fire("Updated!", "Your event has been updated.", "success");
-                        // Update local state instantly
-                        setMyEvents((prev) =>
-                            prev.map((e) =>
-                                e._id === event._id ? { ...e, ...updatedData } : e
-                            )
-                        );
-                    })
-                    .catch(() => {
-                        Swal.fire("Error!", "Failed to update event.", "error");
-                    });
-            }
-        });
-    };
-      
 
     return (
         <div className="max-w-6xl mx-auto mt-10 p-4">
@@ -132,7 +79,6 @@ const ManageEvents = () => {
                                     Delete
                                 </button>
                                 <button
-                                    onClick={() => handleUpdate(event)}
                                     className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
                                 >
                                     Update
