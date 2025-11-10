@@ -16,7 +16,7 @@ const JoinEvents = () => {
         axiosPublic.get(`/joined-events/${user.email}`)
         .then((res) => {
           const sorted = res.data.sort((a, b) => {
-              return new Date(a.eventDate) - new Date(b.eventDate);
+              new Date(a.joinedAt) - new Date(b.joinedAt);
           }) 
           setJoinedEvents(sorted);
         })
@@ -26,9 +26,10 @@ const JoinEvents = () => {
         .finally(() => {
           setDataLoading(false);
         })
+
     }, [user?.email])
 
-    if (dataLoading) {
+    if (loading || dataLoading) {
         return (
             <div className="flex justify-center items-center h-[60vh]">
                 <p className="text-blue-600 font-medium">Loading your joined events...</p>

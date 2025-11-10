@@ -15,7 +15,6 @@ import AuthProvidor from './AuthProvidor.jsx';
 import CreateEvent from './component/Pages/CreateEvent.jsx';
 import JoinEvents from './component/Pages/JoinEvents.jsx';
 import EventDetails from './component/Pages/EventDetails.jsx';
-import ManageEvents from './component/Pages/ManageEvents.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,10 +49,7 @@ const router = createBrowserRouter([
         path: "/events/:id",
         element: <EventDetails></EventDetails>
       }, 
-      {
-        path: "/manage-events",
-        element: <ManageEvents></ManageEvents>
-      }
+      
 
     ],
   },

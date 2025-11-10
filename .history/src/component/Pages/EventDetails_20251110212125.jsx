@@ -8,7 +8,6 @@ const EventDetails = () => {
 
     const { id } = useParams();
     const [event, setEvent] = useState(null);
-    // console.log(event);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -34,9 +33,7 @@ const EventDetails = () => {
             userEmail: user.email,
             joinedAt: new Date(),
             location: event.location,
-            thumbnail: event.thumbnail,
-            type: event.type,
-            eventDate: event.eventDate,
+            thumbnail: event.thumbnail
           };
 
         axiosPublic.post("/joined-events", joinData)

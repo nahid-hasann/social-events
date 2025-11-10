@@ -9,14 +9,13 @@ const JoinEvents = () => {
     const [dataLoading, setDataLoading] = useState(true);
 
     useEffect(() => {
-
       if(!user?.email) return;
  
       setDataLoading(true);
         axiosPublic.get(`/joined-events/${user.email}`)
         .then((res) => {
           const sorted = res.data.sort((a, b) => {
-              return new Date(a.eventDate) - new Date(b.eventDate);
+              new Date(a.joinedAt) - new Date(b.joinedAt);
           }) 
           setJoinedEvents(sorted);
         })
@@ -24,17 +23,12 @@ const JoinEvents = () => {
             toast.error("Failed to load joined events");
         })
         .finally(() => {
-          setDataLoading(false);
+          
         })
-    }, [user?.email])
 
-    if (dataLoading) {
-        return (
-            <div className="flex justify-center items-center h-[60vh]">
-                <p className="text-blue-600 font-medium">Loading your joined events...</p>
-            </div>
-        );
-      }
+
+
+    }, [user?.email])
 
 
     return (

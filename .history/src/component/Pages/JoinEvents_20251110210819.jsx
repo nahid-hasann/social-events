@@ -1,42 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvidor';
-import axiosPublic from '../../axiosPublic';
-import { toast } from 'react-toastify';
 
 const JoinEvents = () => {
     const {user} = useContext(AuthContext);
-    const [joinedEvents, setJoinedEvents] = useState([]);
-    const [dataLoading, setDataLoading] = useState(true);
-
-    useEffect(() => {
-
-      if(!user?.email) return;
- 
-      setDataLoading(true);
-        axiosPublic.get(`/joined-events/${user.email}`)
-        .then((res) => {
-          const sorted = res.data.sort((a, b) => {
-              return new Date(a.eventDate) - new Date(b.eventDate);
-          }) 
-          setJoinedEvents(sorted);
-        })
-        .catch(() => {
-            toast.error("Failed to load joined events");
-        })
-        .finally(() => {
-          setDataLoading(false);
-        })
-    }, [user?.email])
-
-    if (dataLoading) {
-        return (
-            <div className="flex justify-center items-center h-[60vh]">
-                <p className="text-blue-600 font-medium">Loading your joined events...</p>
-            </div>
-        );
-      }
-
-
+    const [joinedEvents, setjo]
     return (
         <div className="max-w-6xl mx-auto mt-10 p-4">
             <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">

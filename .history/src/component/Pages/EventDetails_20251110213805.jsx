@@ -8,7 +8,7 @@ const EventDetails = () => {
 
     const { id } = useParams();
     const [event, setEvent] = useState(null);
-    // console.log(event);
+    console.log(event);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
