@@ -70,48 +70,46 @@ const CreateEvent = () => {
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="Event Title"
-                    className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                />
-                <textarea
-                    name="description"
-                    placeholder="Event Description"
-                    rows="3"
-                    className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                />
-                <select name="type" className="w-full border p-2 dark:bg-gray-800 rounded">
-                    <option value="">Select Event Type</option>
-                    <option value="Cleanup">Cleanup</option>
-                    <option value="Plantation">Plantation</option>
-                    <option value="Donation">Donation</option>
-                    <option value="Awareness">Awareness</option>
-                </select>
-                <input
-                    type="text"
-                    name="thumbnail"
-                    placeholder="Thumbnail Image URL"
-                    className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                />
-                <input
-                    type="text"
-                    name="location"
-                    placeholder="Event Location"
-                    className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                />
-                <div>
-                    <label className="block mb-1 font-medium text-gray-700">
-                        Event Date:
-                    </label>
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        className="border p-2 rounded w-full bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                        minDate={new Date()}
-                        dateFormat="dd/MM/yyyy"
-                    />
+            <input
+  type="text"
+  name="title"
+  placeholder="Event Title"
+  className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+/>
+
+<textarea
+  name="description"
+  placeholder="Event Description"
+  rows="3"
+  className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+/>
+
+<select
+  name="type"
+  className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white"
+/>
+
+<input
+  type="text"
+  name="thumbnail"
+  placeholder="Thumbnail Image URL"
+  className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+/>
+
+<input
+  type="text"
+  name="location"
+  placeholder="Event Location"
+  className="w-full border p-2 rounded bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+/>
+
+<DatePicker
+  selected={startDate}
+  onChange={(date) => setStartDate(date)}
+  className="border p-2 rounded w-full bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+  minDate={new Date()}
+  dateFormat="dd/MM/yyyy"
+/>
                 </div>
 
                 <button

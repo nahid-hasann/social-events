@@ -9,22 +9,14 @@ const UpCommingEvent = () => {
     const [loading, setLoading] = useState(true);
     const [filterType, setFilterType] = useState("");
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
-
-    useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 500);
-
-        return () => clearTimeout(handler); 
-    }, [search]);
 
     useEffect(() => {
         setLoading(true);
 
-        let url = `/events?`;
+        // 🔹 dynamic URL তৈরি
+        let url = "/events?";
         if (filterType) url += `type=${filterType}&`;
-        if (debouncedSearch) url += `search=${debouncedSearch}&`;
+        if (search) url += `search=${search}&`;
 
         axiosPublic
             .get(url)
@@ -37,8 +29,7 @@ const UpCommingEvent = () => {
             })
             .catch(() => toast.error("Failed to load events!"))
             .finally(() => setLoading(false));
-    }, [filterType, debouncedSearch]);
-    // 
+    }, [filterType, search]); // 
 
     if (loading) {
         return (

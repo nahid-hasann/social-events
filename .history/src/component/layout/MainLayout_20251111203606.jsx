@@ -9,12 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 const MainLayout = () => {
     return (
         <div>
-            <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-950 dark:text-white transition-colors duration-300">
+            <div className="min-h-screen flex flex-col bg-white text-black dark-bg-red-500 dark:text-white transition-colors duration-300">
                 <Navbar />
                 <div className="flex-grow">
                     <Outlet />
                 </div>
-                <footer className="text-center dark:text-black py-4 bg-gray-100 mt-10">
+                <footer className="text-center py-4 bg-gray-100 mt-10">
                     © 2025 SocialEvents Platform
                 </footer>
                 <ToastContainer position="top-center" />

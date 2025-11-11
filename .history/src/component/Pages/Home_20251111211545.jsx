@@ -84,7 +84,7 @@ const Home = () => {
 
             {/* ✅ Newsletter Section */}
             <section className="my-20 bg-blue-50 p-6 sm:p-10 rounded-lg text-center">
-                <h2 className="text-2xl dark:text-black sm:text-3xl font-bold mb-3">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-3">
                     Subscribe to Our Newsletter
                 </h2>
                 <p className="text-gray-600  mb-6 max-w-xl mx-auto">

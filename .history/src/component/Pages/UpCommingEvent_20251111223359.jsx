@@ -9,16 +9,16 @@ const UpCommingEvent = () => {
     const [loading, setLoading] = useState(true);
     const [filterType, setFilterType] = useState("");
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
 
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebouncedSearch(search);
         }, 500);
 
-        return () => clearTimeout(handler); 
+        return () => clearTimeout(handler); // cleanup
     }, [search]);
 
+    // 🔥 একটাই useEffect — সব কাজ এখানেই হবে
     useEffect(() => {
         setLoading(true);
 

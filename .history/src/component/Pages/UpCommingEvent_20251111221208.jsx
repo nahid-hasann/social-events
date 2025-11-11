@@ -9,36 +9,19 @@ const UpCommingEvent = () => {
     const [loading, setLoading] = useState(true);
     const [filterType, setFilterType] = useState("");
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
 
     useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 500);
-
-        return () => clearTimeout(handler); 
-    }, [search]);
-
-    useEffect(() => {
-        setLoading(true);
-
-        let url = `/events?`;
-        if (filterType) url += `type=${filterType}&`;
-        if (debouncedSearch) url += `search=${debouncedSearch}&`;
-
-        axiosPublic
-            .get(url)
+        axiosPublic.get("/events")
             .then((res) => {
                 const today = new Date();
-                const upcoming = res.data.filter(
-                    (event) => new Date(event.eventDate) >= today
-                );
-                setEvents(upcoming);
+                const upcomming = res.data.filter((event) => new Date(event.eventDate) >= today)
+                setEvents(upcomming);
+            }).catch((err) => {
+                console.error(err);
+                toast.error("Failed to load events!");
             })
-            .catch(() => toast.error("Failed to load events!"))
             .finally(() => setLoading(false));
-    }, [filterType, debouncedSearch]);
-    // 
+    }, [])
 
     if (loading) {
         return (
@@ -48,26 +31,13 @@ const UpCommingEvent = () => {
         );
     }
 
-    // useEffect(() => {
-    //     if (!filterType && !search) return; // কিছু না থাকলে call হবে না
+    useEffect(() => {
+        let url = `/events?`;
+        if (filterType) url += `type=${filterType}&`;
+        if (search) url += `search=${search}&`;
 
-    //     let url = `/events?`;
-    //     if (filterType) url += `type=${filterType}&`;
-    //     if (search) url += `search=${search}&`;
-
-    //     setLoading(true);
-    //     axiosPublic
-    //         .get(url)
-    //         .then((res) => {
-    //             const today = new Date();
-    //             const upcoming = res.data.filter(
-    //                 (event) => new Date(event.eventDate) >= today
-    //             );
-    //             setEvents(upcoming);
-    //         })
-    //         .catch(() => toast.error("Failed to load filtered events!"))
-    //         .finally(() => setLoading(false));
-    // }, [filterType, search]);
+        axiosPublic.get(url).then(res => setEvents(res.data));
+    }, [filterType, search]);
       
 
     return (
@@ -75,27 +45,6 @@ const UpCommingEvent = () => {
             <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
                 Upcoming Events
             </h2>
-
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-                <input
-                    type="text"
-                    placeholder="Search event by name..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="border p-2 rounded w-60 dark:bg-gray-800 dark:text-white"
-                />
-                <select
-                    value={filterType}
-                    onChange={(e) => setFilterType(e.target.value)}
-                    className="border p-2 rounded dark:bg-gray-800 dark:text-white"
-                >
-                    <option value="">All Types</option>
-                    <option value="Cleanup">Cleanup</option>
-                    <option value="Plantation">Plantation</option>
-                    <option value="Donation">Donation</option>
-                    <option value="Awareness">Awareness</option>
-                </select>
-            </div>
 
             {events.length === 0 ? (
                 <p className="text-center text-gray-600">No upcoming events found.</p>

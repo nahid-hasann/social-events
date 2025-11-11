@@ -75,9 +75,9 @@ const Navbar = () => {
 
                                 >
 
-                                    <Link to="/create-event" className="block dark:text-black px-4 py-2 hover:bg-gray-100">Create Event</Link>
-                                    <Link to="/manage-events" className="block dark:text-black px-4 py-2 hover:bg-gray-100">Manage Events</Link>
-                                    <Link to="/joined" className="block px-4 dark:text-black py-2 hover:bg-gray-100">Joined Events</Link>
+                                    <Link to="/create-event" className="block dark:text px-4 py-2 hover:bg-gray-100">Create Event</Link>
+                                    <Link to="/manage-events" className="block px-4 py-2 hover:bg-gray-100">Manage Events</Link>
+                                    <Link to="/joined" className="block px-4 py-2 hover:bg-gray-100">Joined Events</Link>
                                 </div>
                             </div>
 

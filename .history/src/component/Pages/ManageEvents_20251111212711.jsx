@@ -119,7 +119,7 @@ const ManageEvents = () => {
                                 alt={event.title}
                                 className="w-full h-48 object-cover rounded mb-3"
                             />
-                            <h3 className="text-lg dark:text-black font-semibold">{event.title}</h3>
+                            <h3 className="text-lg  font-semibold">{event.title}</h3>
                             <p className="text-sm text-gray-600">📍 {event.location}</p>
                             <p className="text-sm text-gray-600 mb-2">
                                 📅 {new Date(event.eventDate).toLocaleDateString()}

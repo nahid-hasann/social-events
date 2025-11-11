@@ -9,36 +9,27 @@ const UpCommingEvent = () => {
     const [loading, setLoading] = useState(true);
     const [filterType, setFilterType] = useState("");
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState("");
 
     useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 500);
-
-        return () => clearTimeout(handler); 
-    }, [search]);
-
-    useEffect(() => {
-        setLoading(true);
+        if (!filterType && !search) return;
 
         let url = `/events?`;
         if (filterType) url += `type=${filterType}&`;
-        if (debouncedSearch) url += `search=${debouncedSearch}&`;
+        if (search) url += `search=${search}&`;
 
+        setLoading(true);
         axiosPublic
             .get(url)
-            .then((res) => {
+            .then(res => {
                 const today = new Date();
                 const upcoming = res.data.filter(
-                    (event) => new Date(event.eventDate) >= today
+                    e => new Date(e.eventDate) >= today
                 );
                 setEvents(upcoming);
             })
-            .catch(() => toast.error("Failed to load events!"))
+            .catch(() => toast.error("Failed to load filtered events!"))
             .finally(() => setLoading(false));
-    }, [filterType, debouncedSearch]);
-    // 
+    }, [filterType, search]);
 
     if (loading) {
         return (
@@ -48,26 +39,26 @@ const UpCommingEvent = () => {
         );
     }
 
-    // useEffect(() => {
-    //     if (!filterType && !search) return; // কিছু না থাকলে call হবে না
+    useEffect(() => {
+        if (!filterType && !search) return; // কিছু না থাকলে call হবে না
 
-    //     let url = `/events?`;
-    //     if (filterType) url += `type=${filterType}&`;
-    //     if (search) url += `search=${search}&`;
+        let url = `/events?`;
+        if (filterType) url += `type=${filterType}&`;
+        if (search) url += `search=${search}&`;
 
-    //     setLoading(true);
-    //     axiosPublic
-    //         .get(url)
-    //         .then((res) => {
-    //             const today = new Date();
-    //             const upcoming = res.data.filter(
-    //                 (event) => new Date(event.eventDate) >= today
-    //             );
-    //             setEvents(upcoming);
-    //         })
-    //         .catch(() => toast.error("Failed to load filtered events!"))
-    //         .finally(() => setLoading(false));
-    // }, [filterType, search]);
+        setLoading(true);
+        axiosPublic
+            .get(url)
+            .then((res) => {
+                const today = new Date();
+                const upcoming = res.data.filter(
+                    (event) => new Date(event.eventDate) >= today
+                );
+                setEvents(upcoming);
+            })
+            .catch(() => toast.error("Failed to load filtered events!"))
+            .finally(() => setLoading(false));
+    }, [filterType, search]);
       
 
     return (

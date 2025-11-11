@@ -16,9 +16,10 @@ const UpCommingEvent = () => {
             setDebouncedSearch(search);
         }, 500);
 
-        return () => clearTimeout(handler); 
+        return () => clearTimeout(handler); // cleanup
     }, [search]);
 
+    // 🔥 একটাই useEffect — সব কাজ এখানেই হবে
     useEffect(() => {
         setLoading(true);
 

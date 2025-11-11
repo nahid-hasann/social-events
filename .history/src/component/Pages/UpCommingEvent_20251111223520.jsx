@@ -19,6 +19,7 @@ const UpCommingEvent = () => {
         return () => clearTimeout(handler); 
     }, [search]);
 
+    // 🔥 একটাই useEffect — সব কাজ এখানেই হবে
     useEffect(() => {
         setLoading(true);
 
