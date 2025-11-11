@@ -105,10 +105,6 @@ const UpCommingEvent = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {events.map((event) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4 }}
-                            whileHover={{ scale: 1.05 }}
                             key={event._id}
                             className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 flex flex-col"
                         >
