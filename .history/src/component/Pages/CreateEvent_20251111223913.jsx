@@ -33,12 +33,6 @@ const CreateEvent = () => {
             return;
           }
 
-        if (!thumbnail.startsWith("http")) {
-            toast.error("Please provide a valid image URL!");
-            setLoading(false);
-            return;
-          }
-
         if (!title || !description || !type || !thumbnail || !location || !eventDate) {
             toast.error("All fields are required!")
             setLoading(false);

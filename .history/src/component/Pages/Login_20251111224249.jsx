@@ -17,10 +17,7 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        if (!email || !password) {
-            toast.error("Please fill in both email and password!");
-            return;
-          }
+        
 
         LoginUser(email, password)
             .then(() => {
@@ -59,14 +56,14 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    className="w-full border p-2 rounded"
                     required
                 />
                 <input
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    className="w-full border p-2 rounded"
                     required
                 />
                 <button

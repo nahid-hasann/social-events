@@ -74,7 +74,7 @@ const Register = () => {
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded w-full">Register</button>
             </form>
-            <p className="text-center dark:text-white text-gray-600 mt-3">
+            <p className="text-center text-gray-600 mt-3">
                 Already have an account? <Link to="/login" className="text-blue-600">Login</Link>
             </p>
             <ToastContainer position="top-center" />

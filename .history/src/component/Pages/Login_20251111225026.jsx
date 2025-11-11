@@ -59,14 +59,14 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    className="w-full border p-2 rounded "
                     required
                 />
                 <input
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    className="w-full border p-2 rounded"
                     required
                 />
                 <button

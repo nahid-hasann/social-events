@@ -99,6 +99,10 @@ const ManageEvents = () => {
                     return;
                 }
 
+                if (new Date(updatedData.eventDate) < new Date()) {
+                    Swal.fire("Error!", "Event date must be in the future!", "error");
+                    return;
+                }
 
                 axiosPublic
                     .put(`/events/${event._id}`, updatedData)

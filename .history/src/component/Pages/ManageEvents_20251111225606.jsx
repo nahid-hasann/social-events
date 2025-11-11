@@ -82,23 +82,27 @@ const ManageEvents = () => {
                 if (!updatedData.title || !updatedData.location || !updatedData.eventDate || !updatedData.thumbnail) {
                     Swal.fire("Error!", "All fields are required!", "error");
                     return;
-                }
+                  }
 
                 if (updatedData.title.length < 3) {
                     Swal.fire("Error!", "Title must be at least 3 characters long!", "error");
                     return;
-                }
+                  }
 
                 if (!updatedData.thumbnail.startsWith("http")) {
                     Swal.fire("Error!", "Please provide a valid image URL!", "error");
                     return;
-                }
+                  }
 
                 if (new Date(updatedData.eventDate) < new Date()) {
                     Swal.fire("Error!", "Event date must be in the future!", "error");
                     return;
-                }
+                  }
 
+                if (new Date(updatedData.eventDate) < new Date()) {
+                    Swal.fire("Error!", "Event date must be in the future!", "error");
+                    return;
+                  }
 
                 axiosPublic
                     .put(`/events/${event._id}`, updatedData)
@@ -117,7 +121,7 @@ const ManageEvents = () => {
             }
         });
     };
-
+      
 
     return (
         <div className="max-w-6xl mx-auto mt-10 p-4">
