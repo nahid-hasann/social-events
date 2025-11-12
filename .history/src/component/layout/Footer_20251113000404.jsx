@@ -52,6 +52,7 @@ const Footer = () => {
                 </div>
             </div>
 
+            {/* Bottom */}
             <div className="text-center text-sm border-t border-gray-200 dark:border-gray-700 py-4">
                 © {new Date().getFullYear()} <span className="font-semibold text-[#2563eb]">SocialEvents Platform</span>. All rights reserved.
             </div>
