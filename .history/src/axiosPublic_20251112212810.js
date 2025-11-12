@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getAuth } from "firebase/auth";
 
 
 const axiosPublic = axios.create({
