@@ -17,6 +17,9 @@ const MainLayout = () => {
                     className="flex-grow">
                     <Outlet />
                 </div>
+                <footer className="text-center dark:text-black py-4 bg-gray-100 mt-10">
+                    © 2025 SocialEvents Platform
+                </footer>
                 <Footer></Footer>
                 <ToastContainer position="top-center" />
             </div>

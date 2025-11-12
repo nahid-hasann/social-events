@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -8,8 +8,8 @@ const Footer = () => {
 
                 {/* Left section */}
                 <div>
-                    <h2 className="text-2xl font-bold text-[#2563eb] dark:text-indigo-400">
-                        SocialEvents
+                    <h2 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                        Social Events Platform
                     </h2>
                     <p className="mt-3 text-sm leading-relaxed">
                         Join, create, and manage community-driven events that make a real
@@ -40,7 +40,7 @@ const Footer = () => {
                             <FaFacebook />
                         </a>
                         <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-pink-500 transition">
-                            <FaInstagram />
+                            <FaInstagra />
                         </a>
                         <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-sky-400 transition">
                             <FaTwitter />
@@ -54,7 +54,7 @@ const Footer = () => {
 
             {/* Bottom */}
             <div className="text-center text-sm border-t border-gray-200 dark:border-gray-700 py-4">
-                © {new Date().getFullYear()} <span className="font-semibold text-[#2563eb]">SocialEvents Platform</span>. All rights reserved.
+                © {new Date().getFullYear()} <span className="font-semibold text-indigo-500">SocialEvents Platform</span>. All rights reserved.
             </div>
         </footer>
     );
