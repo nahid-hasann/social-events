@@ -3,18 +3,14 @@ import { motion } from "framer-motion";
 import FeatureSection from '../FeatureSection';
 import { FaCalendarCheck, FaMapMarkedAlt, FaShieldAlt, FaUserFriends } from "react-icons/fa";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
-import React, { useState } from 'react'; 
-import { motion, AnimatePresence } from "framer-motion"; 
-import { FaPlus, FaMinus, FaQuestionCircle } from "react-icons/fa"; 
+import React, { useState } from 'react'; // useState যোগ করো
+import { motion, AnimatePresence } from "framer-motion"; // AnimatePresence যোগ করো
+import { FaPlus, FaMinus, FaQuestionCircle } from "react-icons/fa"; // আইকনগুলো যোগ করো
 
 
 const Home = () => {
 
-    const [activeAccordion, setActiveAccordion] = useState(null);
-
-    const toggleAccordion = (index) => {
-        setActiveAccordion(activeAccordion === index ? null : index);
-    };
+    
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,7 +128,7 @@ const Home = () => {
                 </div>
             </section>
             
-           
+            {/* --- TESTIMONIALS SECTION START --- */}
             <section className="my-20 py-12 bg-gray-50 dark:bg-gray-900 rounded-2xl relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -210,72 +206,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-           
-            <section className="my-20 max-w-4xl mx-auto px-4">
-                <div className="text-center mb-10">
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800 dark:text-white flex items-center justify-center gap-3">
-                        <FaQuestionCircle className="text-blue-600" /> Frequently Asked Questions
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300">
-                        Got questions? We have got answers.
-                    </p>
-                </div>
-
-                <div className="space-y-4">
-                    {[
-                        {
-                            question: "How do I join an event?",
-                            answer: "Simply navigate to the 'Upcoming Events' page, click on 'View Event' for any event you like, and hit the 'Join Event' button. You must be logged in to join."
-                        },
-                        {
-                            question: "Is it free to organize an event?",
-                            answer: "Yes! Creating and organizing community events on SocialEvents is completely free. We believe in empowering communities without barriers."
-                        },
-                        {
-                            question: "Can I cancel my participation?",
-                            answer: "Currently, you cannot cancel directly from the dashboard, but you can contact the event organizer using the contact details provided in the event description."
-                        },
-                        {
-                            question: "How do I contact support?",
-                            answer: "You can reach out to us via our social media channels listed in the footer or email us at support@socialevents.com."
-                        }
-                    ].map((faq, idx) => (
-                        <div
-                            key={idx}
-                            className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm bg-white dark:bg-gray-800"
-                        >
-                            <button
-                                onClick={() => toggleAccordion(idx)}
-                                className="w-full flex justify-between items-center p-5 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition"
-                            >
-                                <span className="text-lg font-medium text-gray-800 dark:text-white">
-                                    {faq.question}
-                                </span>
-                                <span className="text-blue-600 dark:text-blue-400 text-xl">
-                                    {activeAccordion === idx ? <FaMinus /> : <FaPlus />}
-                                </span>
-                            </button>
-
-                            <AnimatePresence>
-                                {activeAccordion === idx && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="p-5 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700">
-                                            {faq.answer}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
-                </div>
-            </section>
-           
+            {/* --- TESTIMONIALS SECTION END --- */}
          
             <section className="my-16">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">

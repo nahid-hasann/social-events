@@ -132,7 +132,7 @@ const Home = () => {
                 </div>
             </section>
             
-           
+            {/* --- TESTIMONIALS SECTION START --- */}
             <section className="my-20 py-12 bg-gray-50 dark:bg-gray-900 rounded-2xl relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">

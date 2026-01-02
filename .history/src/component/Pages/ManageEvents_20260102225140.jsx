@@ -31,7 +31,7 @@ const ManageEvents = () => {
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#2563eb",
+            confirmButtonColor: "##2563eb",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {

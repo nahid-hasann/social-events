@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* progress underline */
+/* success toast underline / progress bar color */
 :root {
     --toastify-color-progress-success: #2563eb;
 }
 
-/* success icon */
+/* success toast icon color */
 .Toastify__toast--success .Toastify__toast-icon svg {
-    fill: #2563eb !important;
+    fill: #2563eb;
 }

@@ -132,7 +132,7 @@ const Home = () => {
                 </div>
             </section>
             
-           
+            {/* --- TESTIMONIALS SECTION START --- */}
             <section className="my-20 py-12 bg-gray-50 dark:bg-gray-900 rounded-2xl relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -210,7 +210,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-           
+            {/* --- TESTIMONIALS SECTION END --- */}
+
+            {/* --- FAQ SECTION START --- */}
             <section className="my-20 max-w-4xl mx-auto px-4">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800 dark:text-white flex items-center justify-center gap-3">
@@ -275,7 +277,7 @@ const Home = () => {
                     ))}
                 </div>
             </section>
-           
+            {/* --- FAQ SECTION END --- */}
          
             <section className="my-16">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">

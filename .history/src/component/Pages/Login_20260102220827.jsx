@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../AuthProvidor';
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
@@ -20,11 +20,20 @@ const Login = () => {
         if (!email || !password) {
             toast.error("Please fill in both email and password!");
             return;
-          }
+        }
 
         LoginUser(email, password)
             .then(() => {
-                toast.success("Login successful!");
+                toast.success("Google login successful!", {
+                    style: {
+                        background: "#2563eb",
+                        color: "white",
+                    },
+                    iconTheme: {
+                        primary: "white",
+                        secondary: "#2563eb",
+                    }
+                });
                 setTimeout(() => {
                     navigate("/")
                 }, 1500);
@@ -77,7 +86,7 @@ const Login = () => {
                 </button>
             </form>
 
-          
+
             <div className="mt-5">
                 <button
                     onClick={handleGoogleLogin}
@@ -93,7 +102,29 @@ const Login = () => {
                     Register
                 </Link>
             </p>
-            
+            <ToastContainer
+                position="top-center"
+                toastOptions={{
+
+                    success: {
+                        style: {
+                            background: "#2563eb",
+                            color: "white",
+                        },
+                        iconTheme: {
+                            primary: "white",
+                            secondary: "#2563eb",
+                        },
+                    },
+
+                    error: {
+                        style: {
+                            background: "#ef4444",
+                            color: "white",
+                        },
+                    },
+                }}
+            />
         </div>
     );
 };

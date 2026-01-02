@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../AuthProvidor';
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
@@ -93,7 +93,7 @@ const Login = () => {
                     Register
                 </Link>
             </p>
-            
+            <ToastContainer position="top-center" />
         </div>
     );
 };

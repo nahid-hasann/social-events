@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../AuthProvidor';
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
@@ -93,7 +93,29 @@ const Login = () => {
                     Register
                 </Link>
             </p>
-            
+            <ToastContainer
+                position="top-center"
+                toastOptions={{
+                    // Success (Login successful) এর জন্য আপনার কালার
+                    success: {
+                        style: {
+                            background: "#2563eb", 
+                            color: "white",        // টেক্সট কালার সাদা
+                        },
+                        iconTheme: {
+                            primary: "white",
+                            secondary: "#2563eb",
+                        },
+                    },
+                    // Error এর জন্য ডিফল্ট লাল বা চাইলে কাস্টমাইজ করতে পারেন
+                    error: {
+                        style: {
+                            background: "#ef4444",
+                            color: "white",
+                        },
+                    },
+                }}
+            />
         </div>
     );
 };

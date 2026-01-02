@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../AuthProvidor';
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
@@ -24,7 +24,12 @@ const Login = () => {
 
         LoginUser(email, password)
             .then(() => {
-                toast.success("Login successful!");
+                toast.success("Login successful!", {
+                    style: {
+                        background: "#2563eb",
+                        color: "white",
+                    },
+                  });
                 setTimeout(() => {
                     navigate("/")
                 }, 1500);
@@ -40,7 +45,12 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(() => {
-                toast.success("Google login successful!");
+                toast.success("Google login successful!", {
+                    style: {
+                        background: "#2563eb",
+                        color: "white",
+                    },
+                  });
                 setTimeout(() => {
                     navigate("/")
                 }, 2000);
