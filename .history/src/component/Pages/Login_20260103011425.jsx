@@ -1,0 +1,131 @@
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../AuthProvidor';
+import { FcGoogle } from 'react-icons/fc';
+import axios from 'axios'; // ১. Axios ইম্পোর্ট
+
+const Login = () => {
+
+    const { LoginUser, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        if (!email || !password) {
+            toast.error("Please fill in both email and password!");
+            return;
+        }
+
+        LoginUser(email, password)
+            .then(() => {
+                toast.success("Login successful!");
+                setTimeout(() => {
+                    navigate("/")
+                }, 1500);
+            })
+            .catch((err) => {
+                toast.error(err.message);
+                console.log(err)
+            })
+    }
+
+    // --- ২. Google Login Update ---
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                const user = result.user;
+
+                const userInfo = {
+                    name: user.displayName,
+                    email: user.email,
+                    role: 'user'
+                };
+
+                // ⚠️ গুরত্বপূর্ণ: নিচের লিংকের জায়গায় আপনার Vercel এর লিংক বসান
+                axios.post('https://your-vercel-project-name.vercel.app/users', userInfo)
+                    .then(res => {
+                        toast.success("Google login successful!");
+                        navigate("/");
+                    });
+            })
+            .catch((err) => toast.error(err.message));
+    }
+
+    const handleDemoLogin = () => {
+        const demoEmail = "guest@demo.com";
+        const demoPass = "123456";
+
+        LoginUser(demoEmail, demoPass)
+            .then(() => {
+                toast.success("Guest Login successful!");
+                setTimeout(() => {
+                    navigate("/");
+                }, 1500);
+            })
+            .catch((err) => {
+                toast.error(err.message);
+            });
+    };
+
+    return (
+        <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
+            <h2 className="text-2xl font-bold mb-4 text-center text-blue-600">
+                Login
+            </h2>
+            <form onSubmit={handleLogin} className="space-y-3">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="w-full border p-2 rounded dark:bg-gray-800 dark:text-white"
+                    required
+                />
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700 transition"
+                >
+                    Login
+                </button>
+            </form>
+
+            <div className="mt-3">
+                <button
+                    onClick={handleDemoLogin}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-200"
+                >
+                    Guest / Demo Login
+                </button>
+            </div>
+
+            <div className="mt-3">
+                <button
+                    onClick={handleGoogleLogin}
+                    className="flex items-center justify-center gap-2 border border-gray-300 rounded w-full py-2 hover:bg-gray-50 transition"
+                >
+                    <FcGoogle size={22} /> <span>Continue with Google</span>
+                </button>
+            </div>
+
+            <p className="text-center text-gray-600 mt-3">
+                New here?{" "}
+                <Link to="/register" className="text-blue-600">
+                    Register
+                </Link>
+            </p>
+
+        </div>
+    );
+};
+
+export default Login;
