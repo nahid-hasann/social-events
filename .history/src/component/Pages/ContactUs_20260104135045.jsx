@@ -76,7 +76,7 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-             
+                {/* ডান পাশ: যোগাযোগের ফর্ম (Contact Form) */}
                 <div className="md:w-3/5 p-8 sm:p-12">
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Send us a Message</h3>
                     <form onSubmit={handleSendMessage} className="space-y-6">

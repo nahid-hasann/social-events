@@ -38,7 +38,7 @@ const ManageUsers = () => {
             axios.delete(`https://social-events-server-hazel.vercel.app/users/${user._id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
-                       
+                        // UI থেকে সাথে সাথে সরিয়ে ফেলার জন্য
                         const remainingUsers = users.filter(u => u._id !== user._id);
                         setUsers(remainingUsers);
                         toast.success("User Deleted Successfully");

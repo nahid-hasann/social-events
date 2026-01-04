@@ -44,14 +44,14 @@ const Navbar = () => {
                         )}
                     </div>
 
-                   
+                    {/* --- Desktop User Actions --- */}
                     <div className="hidden md:flex items-center space-x-4">
                         <ThemeToggle />
 
                         {user ? (
                             <>
                                 <div className="relative group flex items-center gap-2">
-                                    
+                                    {/* Desktop Image with Fallback */}
                                     <img
                                         src={user?.photoURL || defaultAvatar}
                                         onError={(e) => { e.target.src = defaultAvatar; }}
@@ -59,7 +59,7 @@ const Navbar = () => {
                                         referrerPolicy="no-referrer"
                                         className="w-10 h-10 rounded-full border-2 border-blue-100 object-cover cursor-pointer"
                                     />
-                                  
+                                    {/* Tooltip */}
                                     <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-xs rounded py-1 px-2 top-[115%] left-1/2 -translate-x-1/2 whitespace-nowrap">
                                         {user?.displayName || "User"}
                                     </span>
@@ -86,7 +86,7 @@ const Navbar = () => {
                         )}
                     </div>
 
-                  
+                    {/* --- Mobile Menu Button --- */}
                     <div className="md:hidden flex items-center gap-4">
                         <ThemeToggle />
                         <button
@@ -99,7 +99,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-          
+            {/* --- Mobile Dropdown Menu --- */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -125,7 +125,7 @@ const Navbar = () => {
                             {user ? (
                                 <div className="flex flex-col gap-3">
                                     <div className="flex items-center gap-3">
-                                       
+                                        {/* Mobile Image with Fallback */}
                                         <img
                                             src={user?.photoURL || defaultAvatar}
                                             onError={(e) => { e.target.src = defaultAvatar; }}

@@ -66,7 +66,7 @@ const AdminHome = () => {
                     </div>
                 </div>
 
-               
+                {/* Placeholder Card (Future Stats like Total Revenue/Joins) */}
                 <div className="bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">--</div>

@@ -17,7 +17,7 @@ const Dashboard = () => {
                 <div className="p-6 border-b border-blue-600">
                     <h1 className="text-2xl font-bold mb-4">SocialEvents</h1>
 
-                   
+                    {/* এখানে user ব্যবহার করা হয়েছে */}
                     {user && (
                         <div className="flex items-center gap-3">
                             <img
@@ -32,10 +32,10 @@ const Dashboard = () => {
                         </div>
                     )}
                 </div>
-                
+                {/* --- আপডেটেড সেকশন শেষ --- */}
 
                 <nav className="flex-1 p-4 space-y-2">
-                   
+                    {/* ... আপনার বাকি মেনু কোড যেমন আছে তেমনই থাকবে ... */}
                     {
                         isAdmin ? (
                             <>

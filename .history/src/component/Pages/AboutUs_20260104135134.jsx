@@ -144,7 +144,7 @@ const AboutUs = () => {
                                     {member.desc}
                                 </p>
 
-                                
+                                {/* Social Links (Optional) */}
                                 <div className="flex justify-center gap-4 text-gray-400">
                                     <FaLinkedin className="hover:text-blue-600 cursor-pointer text-xl transition-colors" />
                                     <FaTwitter className="hover:text-blue-400 cursor-pointer text-xl transition-colors" />

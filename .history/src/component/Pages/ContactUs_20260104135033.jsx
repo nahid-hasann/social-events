@@ -15,8 +15,9 @@ const ContactUs = () => {
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
             <div className="max-w-5xl w-full bg-white dark:bg-gray-800 shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
 
+                {/* বাম পাশ: যোগাযোগের তথ্য (Contact Info) */}
                 <div className="md:w-2/5 bg-blue-600 dark:bg-blue-700 p-8 text-white flex flex-col justify-between relative overflow-hidden">
-                  
+                    {/* একটি ডেকোরেটিভ ব্যাকগ্রাউন্ড এলিমেন্ট */}
                     <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-500 rounded-full opacity-50 blur-2xl"></div>
                     <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500 rounded-full opacity-50 blur-2xl"></div>
 
@@ -59,7 +60,7 @@ const ContactUs = () => {
                         </div>
                     </div>
 
-                  
+                    {/* সোশ্যাল মিডিয়া লিংক */}
                     <div className="relative z-10 mt-10">
                         <p className="text-blue-200 text-sm font-semibold mb-4 uppercase tracking-wider">Connect with us:</p>
                         <div className="flex gap-4">
@@ -76,7 +77,7 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-             
+                {/* ডান পাশ: যোগাযোগের ফর্ম (Contact Form) */}
                 <div className="md:w-3/5 p-8 sm:p-12">
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Send us a Message</h3>
                     <form onSubmit={handleSendMessage} className="space-y-6">

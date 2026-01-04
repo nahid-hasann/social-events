@@ -23,7 +23,7 @@ const AllEvents = () => {
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         toast.success("Event has been deleted.");
-                       
+                        // UI থেকে সরিয়ে দিচ্ছি
                         const remaining = events.filter(event => event._id !== id);
                         setEvents(remaining);
                     }
@@ -37,7 +37,7 @@ const AllEvents = () => {
 
             <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
                 <table className="table w-full">
-                   
+                    {/* Table Head */}
                     <thead className="bg-gray-800 text-white">
                         <tr>
                             <th className="p-3">#</th>
@@ -47,7 +47,7 @@ const AllEvents = () => {
                             <th className="p-3 text-center">Action</th>
                         </tr>
                     </thead>
-                  
+                    {/* Table Body */}
                     <tbody>
                         {events.map((event, index) => (
                             <tr key={event._id} className="border-b hover:bg-gray-100">

@@ -11,13 +11,13 @@ const AdminHome = () => {
     });
 
     useEffect(() => {
-        
+        \
         axiosPublic.get('/users')
             .then(res => {
                 setStats(prev => ({ ...prev, totalUsers: res.data.length }));
             });
 
-        
+        // ২. সব ইভেন্ট লোড করে সংখ্যা বের করছি
         axiosPublic.get('/events')
             .then(res => {
                 setStats(prev => ({ ...prev, totalEvents: res.data.length }));
@@ -26,7 +26,7 @@ const AdminHome = () => {
 
     return (
         <div className="w-full p-6">
-            
+            {/* Welcome Section */}
             <div className="mb-8 flex items-center gap-4 bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
                 <div className="avatar">
                     <div className="w-16 rounded-full ring ring-blue-600 ring-offset-base-100 ring-offset-2">
@@ -41,10 +41,10 @@ const AdminHome = () => {
                 </div>
             </div>
 
-           
+            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              
+                {/* Total Users Card */}
                 <div className="bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">{stats.totalUsers}</div>
@@ -55,7 +55,7 @@ const AdminHome = () => {
                     </div>
                 </div>
 
-              
+                {/* Total Events Card */}
                 <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">{stats.totalEvents}</div>
@@ -66,7 +66,7 @@ const AdminHome = () => {
                     </div>
                 </div>
 
-               
+                {/* Placeholder Card (Future Stats like Total Revenue/Joins) */}
                 <div className="bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">--</div>

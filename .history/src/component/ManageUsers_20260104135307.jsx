@@ -6,7 +6,7 @@ import axios from 'axios';
 const ManageUsers = () => {
     const [users, setUsers] = useState([]);
 
-    
+    // ১. ডাটাবেস থেকে ইউজার লোড করা
     useEffect(() => {
        
         axios.get('https://social-events-server-hazel.vercel.app/users')
@@ -20,7 +20,7 @@ const ManageUsers = () => {
         axios.patch(`https://social-events-server-hazel.vercel.app/users/admin/${user._id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                   
+                    // UI তে সাথে সাথে আপডেট দেখানোর জন্য
                     const updatedUsers = users.map(u =>
                         u._id === user._id ? { ...u, role: 'admin' } : u
                     );
@@ -31,14 +31,14 @@ const ManageUsers = () => {
     };
 
     const handleDeleteUser = (user) => {
-       
+        // কনফার্মেশন (চাইলে সুইট অ্যালার্ট ব্যবহার করতে পারো)
         const proceed = window.confirm("Are you sure you want to delete?");
 
         if (proceed) {
             axios.delete(`https://social-events-server-hazel.vercel.app/users/${user._id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
-                       
+                        // UI থেকে সাথে সাথে সরিয়ে ফেলার জন্য
                         const remainingUsers = users.filter(u => u._id !== user._id);
                         setUsers(remainingUsers);
                         toast.success("User Deleted Successfully");

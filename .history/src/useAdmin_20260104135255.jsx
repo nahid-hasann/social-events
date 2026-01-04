@@ -9,6 +9,8 @@ const useAdmin = () => {
 
     useEffect(() => {
         if (user?.email && !loading) {
+            // ✅ এখানে axios এর বদলে axiosPublic ব্যবহার করুন
+            // আর পুরো লিংক লেখার দরকার নেই, কারণ axiosPublic এ baseURL দেওয়া আছে
             axiosPublic.get(`/users/admin/${user.email}`)
                 .then(res => {
                     console.log("Admin Check Response:", res.data);

@@ -35,9 +35,9 @@ const AboutUs = () => {
     return (
         <div className="bg-gray-50 dark:bg-gray-900 min-h-screen font-sans">
 
-          
+            {/* 1. Hero Section with Gradient */}
             <div className="relative bg-gradient-to-r from-blue-700 to-blue-500 py-24 text-center text-white overflow-hidden">
-               
+                {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10">
                     <FaGlobeAmericas className="w-96 h-96 absolute -top-20 -left-20 animate-pulse" />
                     <FaUsers className="w-96 h-96 absolute -bottom-20 -right-20 animate-pulse" />
@@ -59,7 +59,7 @@ const AboutUs = () => {
                 </motion.div>
             </div>
 
-          
+            {/* 2. Values / Features Section */}
             <div className="max-w-7xl mx-auto px-4 py-20">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Our Core Values</h2>
@@ -67,7 +67,7 @@ const AboutUs = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  
+                    {/* Value Card 1 */}
                     <motion.div
                         whileHover={{ y: -10 }}
                         className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-b-4 border-blue-500 text-center"
@@ -81,7 +81,7 @@ const AboutUs = () => {
                         </p>
                     </motion.div>
 
-                  
+                    {/* Value Card 2 */}
                     <motion.div
                         whileHover={{ y: -10 }}
                         className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-b-4 border-purple-500 text-center"
@@ -95,7 +95,7 @@ const AboutUs = () => {
                         </p>
                     </motion.div>
 
-                   
+                    {/* Value Card 3 */}
                     <motion.div
                         whileHover={{ y: -10 }}
                         className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border-b-4 border-green-500 text-center"
@@ -111,7 +111,7 @@ const AboutUs = () => {
                 </div>
             </div>
 
-           
+            {/* 3. Team Section (No Images - Initials Style) */}
             <div className="bg-white dark:bg-gray-800 py-20">
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="text-center mb-16">
@@ -126,10 +126,10 @@ const AboutUs = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="bg-gray-50 dark:bg-gray-700 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
                             >
-                                
+                                {/* Decorative circle */}
                                 <div className="absolute top-0 right-0 w-20 h-20 bg-gray-200 dark:bg-gray-600 rounded-bl-full -mr-10 -mt-10 opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
 
-                               
+                                {/* Initials Avatar */}
                                 <div className={`w-24 h-24 mx-auto ${member.color} rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-inner relative z-10`}>
                                     {member.initials}
                                     <div className="absolute -bottom-2 -right-2 bg-white dark:bg-gray-800 p-2 rounded-full text-sm shadow">
@@ -144,7 +144,7 @@ const AboutUs = () => {
                                     {member.desc}
                                 </p>
 
-                                
+                                {/* Social Links (Optional) */}
                                 <div className="flex justify-center gap-4 text-gray-400">
                                     <FaLinkedin className="hover:text-blue-600 cursor-pointer text-xl transition-colors" />
                                     <FaTwitter className="hover:text-blue-400 cursor-pointer text-xl transition-colors" />

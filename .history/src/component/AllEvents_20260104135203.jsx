@@ -47,7 +47,7 @@ const AllEvents = () => {
                             <th className="p-3 text-center">Action</th>
                         </tr>
                     </thead>
-                  
+                    {/* Table Body */}
                     <tbody>
                         {events.map((event, index) => (
                             <tr key={event._id} className="border-b hover:bg-gray-100">

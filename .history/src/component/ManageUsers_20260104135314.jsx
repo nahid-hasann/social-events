@@ -31,14 +31,14 @@ const ManageUsers = () => {
     };
 
     const handleDeleteUser = (user) => {
-       
+        // কনফার্মেশন (চাইলে সুইট অ্যালার্ট ব্যবহার করতে পারো)
         const proceed = window.confirm("Are you sure you want to delete?");
 
         if (proceed) {
             axios.delete(`https://social-events-server-hazel.vercel.app/users/${user._id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
-                       
+                        // UI থেকে সাথে সাথে সরিয়ে ফেলার জন্য
                         const remainingUsers = users.filter(u => u._id !== user._id);
                         setUsers(remainingUsers);
                         toast.success("User Deleted Successfully");

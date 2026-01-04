@@ -55,7 +55,7 @@ const AdminHome = () => {
                     </div>
                 </div>
 
-              
+                {/* Total Events Card */}
                 <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">{stats.totalEvents}</div>
@@ -66,7 +66,7 @@ const AdminHome = () => {
                     </div>
                 </div>
 
-               
+                {/* Placeholder Card (Future Stats like Total Revenue/Joins) */}
                 <div className="bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg p-6 text-white shadow-lg flex items-center justify-between">
                     <div>
                         <div className="text-4xl font-bold">--</div>

@@ -99,7 +99,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-          
+            {/* --- Mobile Dropdown Menu --- */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -125,7 +125,7 @@ const Navbar = () => {
                             {user ? (
                                 <div className="flex flex-col gap-3">
                                     <div className="flex items-center gap-3">
-                                       
+                                        {/* Mobile Image with Fallback */}
                                         <img
                                             src={user?.photoURL || defaultAvatar}
                                             onError={(e) => { e.target.src = defaultAvatar; }}
