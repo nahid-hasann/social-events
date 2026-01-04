@@ -7,7 +7,7 @@ import { auth } from '../../firebase.init';
 import axios from 'axios';
 
 const Register = () => {
-    const { registerUser, logOutUser } = useContext(AuthContext); 
+    const { registerUser, logOutUser } = useContext(AuthContext); // logOutUser দরকার হতে পারে
     const [error, setError] = useState("");
     const navigate = useNavigate();
 

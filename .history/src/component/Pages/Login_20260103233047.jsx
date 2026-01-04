@@ -77,7 +77,7 @@ const Login = () => {
     // --- ২. ডেমো এডমিন লগইন ফাংশন ---
     const handleAdminDemo = () => {
         const email = "admin@demo.com"; // এই ইমেইলে একাউন্ট থাকতে হবে এবং DB তে role: 'admin' থাকতে হবে
-        const pass = "Aa123456";
+        const pass = "";
 
         LoginUser(email, pass)
             .then(() => {

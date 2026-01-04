@@ -64,7 +64,7 @@ const Login = () => {
     // --- ১. ডেমো ইউজার লগইন ফাংশন ---
     const handleUserDemo = () => {
         const email = "user@demo.com"; // এই ইমেইলে ফায়ারবেসে একাউন্ট থাকতে হবে
-        const pass = "Aa123456";
+        const pass = "";
 
         LoginUser(email, pass)
             .then(() => {
@@ -77,7 +77,7 @@ const Login = () => {
     // --- ২. ডেমো এডমিন লগইন ফাংশন ---
     const handleAdminDemo = () => {
         const email = "admin@demo.com"; // এই ইমেইলে একাউন্ট থাকতে হবে এবং DB তে role: 'admin' থাকতে হবে
-        const pass = "Aa123456";
+        const pass = "123456";
 
         LoginUser(email, pass)
             .then(() => {
